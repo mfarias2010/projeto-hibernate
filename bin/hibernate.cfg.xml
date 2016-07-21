@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- dados de Conexão com o Banco -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3307/projeto_hibernate_db</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">835221</property>
+ 
+ 
+		<!-- Quando Banco de dados será utilizado (PostgreSQL, MySQL, SQLServer, Oracle) -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.jdbc.batch_size">20</property>
+		
+		<!-- Para o Hibernate criar as tabelas no banco -->
+ 		<property name="hibernate.hbm2ddl.auto">create</property>
+		<!-- 
+		Ações que podem ser executadas:
+		validate: Apenas valida se as tabelas estão conforme o modelo de entidades 
+		update: Atualiza as tabelas conforme estão as entidades
+		create: Cria as tabelas que não existem
+		create-drop: Apaga todas as tabelas e recria		
+		 -->		
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <property name="hibernate.c3p0.idle_test_period">100</property>
+		<!-- Lista das entidades que serão persistidas no Banco de Dados-->		
+		<mapping class="curso.hibernate.modelo.Usuario" />		
+		<mapping class="curso.hibernate.modelo.Veiculo" />		
+	</session-factory>
+</hibernate-configuration>  
